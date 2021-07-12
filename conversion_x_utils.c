@@ -6,15 +6,15 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:53:18 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/18 17:53:11 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:05:12 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		define_nb_space_x(char *res, t_flag *p_flag)
+int	define_nb_space_x(char *res, t_flag *p_flag)
 {
-	int nb_space;
+	int	nb_space;
 
 	nb_space = 0;
 	if (res[0] == '-' && p_flag->precision > ft_strlen(res))
@@ -33,7 +33,7 @@ int		define_nb_space_x(char *res, t_flag *p_flag)
 
 void	print_zero_x(char *res, t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p_flag->dot == 1 || p_flag->zero == 1)
@@ -49,7 +49,7 @@ void	print_zero_x(char *res, t_flag *p_flag, t_len *length)
 
 void	print_space(int nb_space, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < nb_space)
@@ -63,8 +63,8 @@ void	print_space(int nb_space, t_len *length)
 
 void	print_x(char *res, t_flag *p_flag, t_len *length)
 {
-	int i;
-	int nb_space;
+	int	i;
+	int	nb_space;
 
 	i = 0;
 	nb_space = define_nb_space_x(res, p_flag);
@@ -79,8 +79,8 @@ void	print_x(char *res, t_flag *p_flag, t_len *length)
 
 void	print_x_neg(char *res, t_flag *p_flag, t_len *length)
 {
-	int i;
-	int nb_space;
+	int	i;
+	int	nb_space;
 
 	nb_space = define_nb_space_x(res, p_flag);
 	i = 0;

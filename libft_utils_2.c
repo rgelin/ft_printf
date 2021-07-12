@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 11:33:24 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/18 18:38:24 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:13:34 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_swap(char *res)
 	}
 }
 
-int		ft_atoi_modified(char *str)
+int	ft_atoi_modified(char *str)
 {
 	int			i;
 	int			sign;
@@ -37,16 +37,21 @@ int		ft_atoi_modified(char *str)
 	sign = 1;
 	res = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f' || str[i] == ' '
-			|| str[i] == '-' || str[i] == '0' || str[i] == '*' || str[i] == '.')
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' '
+		|| str[i] == '-' || str[i] == '0' || str[i] == '*' || str[i] == '.')
 		i++;
 	while ((str[i] >= '0' && str[i] <= '9'))
 	{
 		res = (res * 10) + str[i++] - '0';
 		if (res < 0)
-			return (sign == 1 ? -1 : 0);
+		{
+			if (sign == 1)
+				return (-1);
+			else
+				return (0);
+		}
 	}
-	return (int)(sign * res);
+	return ((int) sign * res);
 }
 
 void	ft_putnbr_unsigned_fd(unsigned long nb, int fd)
@@ -60,9 +65,9 @@ void	ft_putnbr_unsigned_fd(unsigned long nb, int fd)
 		ft_putchar_fd(nb + '0', fd);
 }
 
-int		count_nbr_u(unsigned long nb)
+int	count_nbr_u(unsigned long nb)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (nb == 0)

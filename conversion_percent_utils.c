@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 19:05:35 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/18 17:43:27 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 17:50:36 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	print_percent_star_1(t_flag *p_flag, t_len *length)
 
 void	print_percent(t_flag *p_flag, t_len *length)
 {
-	int i;
-	int nb_space;
+	int	i;
+	int	nb_space;
 
 	i = 0;
 	nb_space = p_flag->size - 1;
@@ -51,7 +51,7 @@ void	print_percent(t_flag *p_flag, t_len *length)
 
 void	print_percent_neg(t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p_flag->zero == 1)

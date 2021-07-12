@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 16:18:50 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/26 16:07:38 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 17:59:07 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ void	set_one_star_arg_s(va_list ap, char *flag, t_flag *p_flag)
 {
 	if (p_flag->dot == 1 && flag[ft_strlen(flag) - 2] == '*')
 	{
-		if (!(p_flag->size = ft_atoi_modified(flag)))
+		p_flag->size = ft_atoi_modified(flag);
+		if (!p_flag->size)
 			p_flag->size = 0;
 		p_flag->precision = va_arg(ap, int);
 	}
 	else
 	{
 		p_flag->size = va_arg(ap, int);
-		if (!(p_flag->precision = ft_atoi_modified(flag)))
+		p_flag->precision = ft_atoi_modified(flag);
+		if (!p_flag->precision)
 			p_flag->precision = 0;
 	}
 	if (p_flag->size < 0)
@@ -45,7 +47,7 @@ void	set_one_star_arg_s(va_list ap, char *flag, t_flag *p_flag)
 
 void	print_space_s(char *str, t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (((p_flag->precision < ft_strlen(str))) && (p_flag->dot == 1))
@@ -69,7 +71,7 @@ void	print_space_s(char *str, t_flag *p_flag, t_len *length)
 
 void	print_string(char *str, t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (((p_flag->precision < ft_strlen(str))) && (p_flag->dot == 1))
@@ -92,7 +94,7 @@ void	print_string(char *str, t_flag *p_flag, t_len *length)
 
 void	print_string_neg(char *str, t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if ((p_flag->precision < ft_strlen(str)) && (p_flag->dot == 1))

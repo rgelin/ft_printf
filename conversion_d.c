@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 22:48:41 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/26 16:03:25 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 17:45:36 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_flag_dot(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 
 void	print_star_2(va_list ap, t_flag *p_flag, t_len *length)
 {
-	long nb;
+	long	nb;
 
 	p_flag->size = va_arg(ap, int);
 	p_flag->precision = va_arg(ap, int);
@@ -55,10 +55,11 @@ void	print_star_2(va_list ap, t_flag *p_flag, t_len *length)
 
 void	print_d(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 {
-	long nb;
+	long	nb;
 
 	nb = (long)va_arg(ap, int);
-	if (!(p_flag->size = ft_atoi_modified(flag)))
+	p_flag->size = ft_atoi_modified(flag);
+	if (!p_flag->size)
 		p_flag->size = 0;
 	p_flag->precision = 0;
 	if (p_flag->zero == 1)
@@ -70,11 +71,12 @@ void	print_d(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	return ;
 }
 
-int		conversion_d(va_list ap, char *flag, t_len *length)
+int	conversion_d(va_list ap, char *flag, t_len *length)
 {
-	t_flag *p_flag;
+	t_flag	*p_flag;
 
-	if (!(p_flag = (t_flag*)malloc(sizeof(t_flag))))
+	p_flag = (t_flag *)malloc(sizeof(t_flag));
+	if (!p_flag)
 		return (-1);
 	ini_struct_p(p_flag);
 	activation_flag(flag, p_flag);

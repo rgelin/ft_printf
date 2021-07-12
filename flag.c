@@ -6,15 +6,15 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:31:23 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/19 15:09:47 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:06:19 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		count_flag(const char *format)
+int	count_flag(const char *format)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (!ft_strchr("cspdiuxX%", format[i]))
@@ -28,7 +28,8 @@ char	*extract_flag(const char *format, int i)
 	char	*res;
 
 	j = 0;
-	if (!(res = malloc(sizeof(char) * count_flag(format) + 1)))
+	res = malloc(sizeof(char) * count_flag(format) + 1);
+	if (!res)
 		return (NULL);
 	while (!ft_strchr("cspdiuxX%", format[i]))
 		res[j++] = format[i++];
@@ -37,9 +38,9 @@ char	*extract_flag(const char *format, int i)
 	return (res);
 }
 
-int		activation_flag(char *flag, t_flag *active_flag)
+int	activation_flag(char *flag, t_flag *active_flag)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!flag)

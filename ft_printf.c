@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:25:15 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/19 15:08:59 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:08:47 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ void	to_print(va_list ap, const char *format, t_len *length)
 	}
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	int		ret;
 	t_len	*length;
-	va_list	(ap);
 
+	va_list (ap);
 	ret = 0;
-	if (!(length = (t_len*)malloc(sizeof(t_len))))
+	length = (t_len *)malloc(sizeof(t_len));
+	if (!length)
 		return (-1);
 	va_start(ap, format);
 	ini_struct_len(length);

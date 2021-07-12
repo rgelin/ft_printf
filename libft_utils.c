@@ -6,15 +6,15 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 18:33:24 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/18 14:51:07 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:10:21 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -31,7 +31,7 @@ void	ft_putchar_fd(int c, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long long nb;
+	long long	nb;
 
 	nb = n;
 	if (nb < 0)
@@ -50,7 +50,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 void	ft_putstr_fd(char *str, int fd)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -60,7 +60,7 @@ void	ft_putstr_fd(char *str, int fd)
 	}
 }
 
-int		ft_strchr(char *s, int c)
+int	ft_strchr(char *s, int c)
 {
 	char	*str;
 	int		i;

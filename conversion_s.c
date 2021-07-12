@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 21:44:14 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/26 16:07:06 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 17:55:41 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	print_flag_dot_s(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	char	*str;
 
 	i = 0;
-	if (!(str = va_arg(ap, char *)))
+	str = va_arg(ap, char *);
+	if (!str)
 		str = "(null)";
 	while (flag[i] != '.')
 		i++;
@@ -36,7 +37,7 @@ void	print_flag_dot_s(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 
 void	print_string_star_2(va_list ap, t_flag *p_flag, t_len *length)
 {
-	char *str;
+	char	*str;
 
 	p_flag->size = va_arg(ap, int);
 	p_flag->precision = va_arg(ap, int);
@@ -45,7 +46,8 @@ void	print_string_star_2(va_list ap, t_flag *p_flag, t_len *length)
 		p_flag->minus = 1;
 		p_flag->size = -p_flag->size;
 	}
-	if (!(str = va_arg(ap, char *)))
+	str = va_arg(ap, char *);
+	if (!str)
 		str = "(null)";
 	if (p_flag->precision < 0)
 		p_flag->precision = ft_strlen(str);
@@ -56,10 +58,11 @@ void	print_string_star_2(va_list ap, t_flag *p_flag, t_len *length)
 void	print_string_star_1(va_list ap, char *flag, t_flag *p_flag,
 							t_len *length)
 {
-	char *str;
+	char	*str;
 
 	set_one_star_arg_s(ap, flag, p_flag);
-	if (!(str = va_arg(ap, char *)))
+	str = va_arg(ap, char *);
+	if (!str)
 		str = "(null)";
 	if (p_flag->precision < 0)
 	{
@@ -72,12 +75,14 @@ void	print_string_star_1(va_list ap, char *flag, t_flag *p_flag,
 
 void	print_s(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 {
-	char *str;
+	char	*str;
 
-	if (!(p_flag->size = ft_atoi_modified(flag)))
+	p_flag->size = ft_atoi_modified(flag);
+	if (!p_flag->size)
 		p_flag->size = 0;
 	p_flag->precision = 0;
-	if (!(str = va_arg(ap, char *)))
+	str = va_arg(ap, char *);
+	if (!str)
 		str = "(null)";
 	if ((p_flag->size < ft_strlen(str)))
 		p_flag->size = ft_strlen(str);
@@ -85,11 +90,12 @@ void	print_s(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	return ;
 }
 
-int		conversion_s(va_list ap, char *flag, t_len *length)
+int	conversion_s(va_list ap, char *flag, t_len *length)
 {
-	t_flag *p_flag;
+	t_flag	*p_flag;
 
-	if (!(p_flag = (t_flag*)malloc(sizeof(t_flag))))
+	p_flag = (t_flag *)malloc(sizeof(t_flag));
+	if (!p_flag)
 		return (-1);
 	ini_struct_p(p_flag);
 	activation_flag(flag, p_flag);

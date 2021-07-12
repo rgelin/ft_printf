@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 15:12:04 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/18 17:14:27 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:03:03 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ char	*convert_nbr(va_list ap, char *flag)
 
 	i = 0;
 	nbr = (unsigned long)va_arg(ap, unsigned int);
-	if (!(res = malloc(sizeof(char) * count_nbr(nbr) + 1)))
+	res = malloc(sizeof(char) * count_nbr(nbr) + 1);
+	if (!res)
 		return (NULL);
 	if (nbr == 0)
 		res[i++] = '0';

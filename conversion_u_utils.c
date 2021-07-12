@@ -6,14 +6,14 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 17:58:31 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/19 19:58:53 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:02:05 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void				print_neg_direction_u(unsigned long nb, t_flag *p_flag,
-									t_len *length)
+void	print_neg_direction_u(unsigned long nb, t_flag *p_flag,
+								t_len *length)
 {
 	if (p_flag->minus == 1)
 		print_u_neg(nb, p_flag, length);
@@ -22,10 +22,10 @@ void				print_neg_direction_u(unsigned long nb, t_flag *p_flag,
 	return ;
 }
 
-unsigned long		print_zero_u(unsigned long nb, t_flag *p_flag,
-									t_len *length)
+unsigned long	print_zero_u(unsigned long nb, t_flag *p_flag,
+								t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p_flag->dot == 1 || p_flag->zero == 1)
@@ -48,9 +48,9 @@ unsigned long		print_zero_u(unsigned long nb, t_flag *p_flag,
 	return (nb);
 }
 
-int					define_nb_space_u(unsigned long nb, t_flag *p_flag)
+int	define_nb_space_u(unsigned long nb, t_flag *p_flag)
 {
-	int nb_space;
+	int	nb_space;
 
 	nb_space = 0;
 	if (nb < 0 && p_flag->precision > count_nbr_u(nb))
@@ -67,10 +67,10 @@ int					define_nb_space_u(unsigned long nb, t_flag *p_flag)
 	return (nb_space);
 }
 
-void				print_u(unsigned long nb, t_flag *p_flag, t_len *length)
+void	print_u(unsigned long nb, t_flag *p_flag, t_len *length)
 {
-	int i;
-	int nb_space;
+	int	i;
+	int	nb_space;
 
 	i = 0;
 	nb_space = define_nb_space_u(nb, p_flag);
@@ -83,10 +83,10 @@ void				print_u(unsigned long nb, t_flag *p_flag, t_len *length)
 	return ;
 }
 
-void				print_u_neg(unsigned long nb, t_flag *p_flag, t_len *length)
+void	print_u_neg(unsigned long nb, t_flag *p_flag, t_len *length)
 {
-	int i;
-	int nb_space;
+	int	i;
+	int	nb_space;
 
 	nb_space = define_nb_space_u(nb, p_flag);
 	i = 0;

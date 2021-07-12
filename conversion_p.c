@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:55:18 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/18 18:33:38 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 17:49:52 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_adr(char *res, char *flag, t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	p_flag->size = ft_atoi_modified(flag);
@@ -32,7 +32,7 @@ void	print_adr(char *res, char *flag, t_flag *p_flag, t_len *length)
 
 void	print_adr_neg(char *res, char *flag, t_flag *p_flag, t_len *length)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (res == NULL && flag[ft_strlen(flag) - 2] == '.')
@@ -75,7 +75,8 @@ void	convert_adr(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	int				i;
 
 	adr = (unsigned long)va_arg(ap, void *);
-	if (!(res = malloc(sizeof(char) * (count_nbr(adr) + 1))))
+	res = malloc(sizeof(char) * (count_nbr(adr) + 1));
+	if (!res)
 		return ;
 	i = 0;
 	if (!adr)
@@ -93,11 +94,12 @@ void	convert_adr(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	return ;
 }
 
-int		conversion_p(va_list ap, char *flag, t_len *length)
+int	conversion_p(va_list ap, char *flag, t_len *length)
 {
-	t_flag *p_flag;
+	t_flag	*p_flag;
 
-	if (!(p_flag = (t_flag*)malloc(sizeof(t_flag))))
+	p_flag = (t_flag *)malloc(sizeof(t_flag));
+	if (!p_flag)
 		return (-1);
 	ini_struct_p(p_flag);
 	activation_flag(flag, p_flag);

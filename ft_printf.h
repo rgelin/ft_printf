@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:25:29 by rgelin            #+#    #+#             */
-/*   Updated: 2021/03/26 16:09:50 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/12 18:15:09 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ void			ft_swap(char *res);
 void			ft_putnbr_unsigned_fd(unsigned long n, int fd);
 int				count_nbr_u(unsigned long nb);
 
-typedef struct	s_len
+typedef struct s_len
 {
-	int len;
+	int	len;
 }				t_len;
 
-typedef struct	s_flag
+typedef struct s_flag
 {
-	int dot;
-	int minus;
-	int zero;
-	int star;
+	int	dot;
+	int	minus;
+	int	zero;
+	int	star;
 
-	int size;
-	int precision;
+	int	size;
+	int	precision;
 }				t_flag;
 
 int				ft_printf(const char *format, ...);
@@ -55,7 +55,7 @@ void			print_space(int nb_space, t_len *length);
 int				conversion_d(va_list ap, char *flag, t_len *length);
 void			set_size_one_star(va_list ap, char *flag, t_flag *p_flag);
 void			set_one_star_arg(va_list ap, char *flag, t_flag *p_flag,
-									t_len *length);
+					t_len *length);
 void			print_neg_direction(long nb, t_flag *p_flag, t_len *length);
 void			print_nb(long nb, t_flag *p_flag, t_len *length);
 void			print_nb_neg(long nb, t_flag *p_flag, t_len *length);
@@ -79,13 +79,13 @@ int				conversion_p(va_list ap, char *flag, t_len *length);
 int				nb_space_p(char *res, char *flag, t_flag *p_flag);
 void			put_adr(char *res, char *flag, t_len *length);
 void			print_space_p(char *res, char *flag, t_flag *p_flag,
-								t_len *length);
+					t_len *length);
 
 int				conversion_u(va_list ap, char *flag, t_len *length);
 void			print_u(unsigned long nb, t_flag *p_flag, t_len *length);
 void			print_u_neg(unsigned long nb, t_flag *p_flag, t_len *length);
 void			print_neg_direction_u(unsigned long nb, t_flag *p_flag,
-										t_len *length);
+					t_len *length);
 
 int				conversion_percent(va_list ap, char *flag, t_len *length);
 void			print_percent_star_1(t_flag *p_flag, t_len *length);
