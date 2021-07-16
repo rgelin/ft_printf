@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 15:12:04 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 18:03:03 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/16 13:27:07 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_x_star_1(char *nb, t_flag *p_flag, t_len *length)
 {
-	if (p_flag->minus == 1)
+	if (nb && p_flag->minus == 1)
 		print_x_neg(nb, p_flag, length);
 	else
 		print_x(nb, p_flag, length);

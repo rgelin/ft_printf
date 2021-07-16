@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:24:02 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 18:04:31 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/16 13:30:29 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_flag_dot_x(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	if (!p_flag->size)
 		p_flag->size = p_flag->precision;
 	nb = convert_nbr(ap, flag);
-	if (p_flag->minus == 1)
+	if (nb && p_flag->minus == 1)
 		print_x_neg(nb, p_flag, length);
 	else
 		print_x(nb, p_flag, length);
@@ -40,7 +40,7 @@ void	print_x_star_2(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	p_flag->size = va_arg(ap, int);
 	p_flag->precision = va_arg(ap, int);
 	nb = convert_nbr(ap, flag);
-	if (p_flag->minus == 1)
+	if (nb && p_flag->minus == 1)
 		print_x_neg(nb, p_flag, length);
 	else
 		print_x(nb, p_flag, length);
@@ -71,6 +71,8 @@ void	set_x_star_arg(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 		p_flag->precision = va_arg(ap, int);
 	}
 	nb = convert_nbr(ap, flag);
+	if (!nb)
+		return ;
 	print_x_star_1(nb, p_flag, length);
 	return ;
 }
@@ -89,7 +91,7 @@ void	convert_x(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 		p_flag->size = 0;
 	}
 	nb = convert_nbr(ap, flag);
-	if (p_flag->minus == 1)
+	if (nb && p_flag->minus == 1)
 		print_x_neg(nb, p_flag, length);
 	else
 		print_x(nb, p_flag, length);

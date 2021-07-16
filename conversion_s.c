@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 21:44:14 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/15 21:52:54 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/16 13:41:49 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	print_s(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 	str = va_arg(ap, char *);
 	if (!str)
 		str = "(null)";
-	if ((p_flag->size < ft_strlen(str)))
+	if (str && (p_flag->size < ft_strlen(str)))
 		p_flag->size = ft_strlen(str);
 	print_neg_direction_s(str, p_flag, length);
 	return ;
