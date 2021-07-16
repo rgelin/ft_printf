@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:25:29 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 18:15:09 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/16 12:38:42 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_flag
 }				t_flag;
 
 int				ft_printf(const char *format, ...);
-char			*extract_flag(const char *format, int i);
+char			*extract_flag(const char *format, int i, t_len *length);
 void			ini_struct_p(t_flag *flag);
 void			ini_struct_len(t_len *length);
 int				activation_flag(char *flag, t_flag *active_flag);
