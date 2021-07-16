@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:31:23 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 18:06:19 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/15 22:55:15 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*extract_flag(const char *format, int i)
 
 	j = 0;
 	res = malloc(sizeof(char) * count_flag(format) + 1);
-	if (!res)
+	if (res == NULL)
 		return (NULL);
 	while (!ft_strchr("cspdiuxX%", format[i]))
 		res[j++] = format[i++];

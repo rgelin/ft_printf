@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 17:58:31 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 18:02:05 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/15 17:40:32 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	print_u_neg(unsigned long nb, t_flag *p_flag, t_len *length)
 	else
 	{
 		nb = print_zero_u(nb, p_flag, length);
-		ft_putnbr_fd(nb, 1);
+		ft_putnbr_unsigned_fd(nb, 1);
 		length->len += count_nbr_u(nb);
 		print_space(nb_space, length);
 	}

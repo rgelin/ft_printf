@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 16:18:50 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 17:59:07 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/15 22:05:29 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_neg_direction_s(char *str, t_flag *p_flag, t_len *length)
 {
-	if (p_flag->minus == 1)
+	if (str && p_flag->minus == 1)
 		print_string_neg(str, p_flag, length);
 	else
 		print_string(str, p_flag, length);
@@ -50,7 +50,7 @@ void	print_space_s(char *str, t_flag *p_flag, t_len *length)
 	int	i;
 
 	i = 0;
-	if (((p_flag->precision < ft_strlen(str))) && (p_flag->dot == 1))
+	if (str && ((p_flag->precision < ft_strlen(str))) && (p_flag->dot == 1))
 	{
 		while (i++ < ((p_flag->size - p_flag->precision)))
 		{
@@ -74,7 +74,7 @@ void	print_string(char *str, t_flag *p_flag, t_len *length)
 	int	i;
 
 	i = 0;
-	if (((p_flag->precision < ft_strlen(str))) && (p_flag->dot == 1))
+	if (str && ((p_flag->precision < ft_strlen(str))) && (p_flag->dot == 1))
 	{
 		print_space_s(str, p_flag, length);
 		while (i < p_flag->precision)
@@ -97,7 +97,7 @@ void	print_string_neg(char *str, t_flag *p_flag, t_len *length)
 	int	i;
 
 	i = 0;
-	if ((p_flag->precision < ft_strlen(str)) && (p_flag->dot == 1))
+	if (str && (p_flag->precision < ft_strlen(str)) && (p_flag->dot == 1))
 	{
 		while (i < p_flag->precision)
 		{

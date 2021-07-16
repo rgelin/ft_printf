@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:53:18 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 18:05:12 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/15 21:54:46 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	define_nb_space_x(char *res, t_flag *p_flag)
 	int	nb_space;
 
 	nb_space = 0;
-	if (res[0] == '-' && p_flag->precision > ft_strlen(res))
+	if (res && res[0] == '-' && p_flag->precision > ft_strlen(res))
 		p_flag->size--;
-	if (res[0] == '0' && p_flag->precision == 0 && p_flag->dot == 1)
+	if (res && res[0] == '0' && p_flag->precision == 0 && p_flag->dot == 1)
 	{
 		nb_space = p_flag->size;
 		return (nb_space);
@@ -38,7 +38,7 @@ void	print_zero_x(char *res, t_flag *p_flag, t_len *length)
 	i = 0;
 	if (p_flag->dot == 1 || p_flag->zero == 1)
 	{
-		while (i < (p_flag->precision - ft_strlen(res)))
+		while (res && i < (p_flag->precision - ft_strlen(res)))
 		{
 			ft_putchar_fd('0', 1);
 			length->len++;
@@ -69,7 +69,7 @@ void	print_x(char *res, t_flag *p_flag, t_len *length)
 	i = 0;
 	nb_space = define_nb_space_x(res, p_flag);
 	print_space(nb_space, length);
-	if (res[0] == '0' && p_flag->precision == 0 && p_flag->dot == 1)
+	if (res && res[0] == '0' && p_flag->precision == 0 && p_flag->dot == 1)
 		return ;
 	print_zero_x(res, p_flag, length);
 	ft_putstr_fd(res, 1);
@@ -84,7 +84,7 @@ void	print_x_neg(char *res, t_flag *p_flag, t_len *length)
 
 	nb_space = define_nb_space_x(res, p_flag);
 	i = 0;
-	if (res[0] == '0' && p_flag->precision == 0 && p_flag->dot == 1)
+	if (res && res[0] == '0' && p_flag->precision == 0 && p_flag->dot == 1)
 		print_space(nb_space, length);
 	else
 	{

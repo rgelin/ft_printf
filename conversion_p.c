@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:55:18 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/12 17:49:52 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/15 22:07:13 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_adr(char *res, char *flag, t_flag *p_flag, t_len *length)
 
 	i = 0;
 	p_flag->size = ft_atoi_modified(flag);
-	if (p_flag->size > (ft_strlen(res) + 2))
+	if (res && p_flag->size > (ft_strlen(res) + 2))
 	{
 		print_space_p(res, flag, p_flag, length);
 		put_adr(res, flag, length);
@@ -35,13 +35,13 @@ void	print_adr_neg(char *res, char *flag, t_flag *p_flag, t_len *length)
 	int	i;
 
 	i = 0;
-	if (res == NULL && flag[ft_strlen(flag) - 2] == '.')
+	if (res && res == NULL && flag[ft_strlen(flag) - 2] == '.')
 	{
 		ft_putstr_fd("0x", 1);
 		return ;
 	}
 	p_flag->size = ft_atoi_modified(flag);
-	if (p_flag->size > (ft_strlen(res) + 2))
+	if (res && p_flag->size > (ft_strlen(res) + 2))
 	{
 		write(1, "0x", 2);
 		ft_putstr_fd(res, 1);
@@ -59,7 +59,7 @@ void	print_adr_neg(char *res, char *flag, t_flag *p_flag, t_len *length)
 
 void	print_direction_p(char *res, char *flag, t_flag *p_flag, t_len *length)
 {
-	if (p_flag->minus == 1)
+	if (res && p_flag->minus == 1)
 		print_adr_neg(res, flag, p_flag, length);
 	else
 		print_adr(res, flag, p_flag, length);
