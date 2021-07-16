@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:25:15 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/16 12:21:37 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/16 12:24:01 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	to_print(va_list ap, const char *format, t_len *length)
 
 	i = 0;
 	flag = 0;
-	while (format[i])	{
-		if (format[i] == '%' && format[i + 1])	{
+	while (format[i]) {
+		if (format[i] == '%' && format[i + 1]) {
 			i++;
 			flag = extract_flag(format, i);
-			if (flag == NULL)	{
+			if (flag == NULL) {
 				length->len = -1;
 				return ;
 			}
@@ -31,7 +31,7 @@ void	to_print(va_list ap, const char *format, t_len *length)
 				i++;
 			print_direction(ap, flag, length);
 		}
-		else	{
+		else {
 			ft_putchar_fd(format[i], 1);
 			length->len++;
 		}
