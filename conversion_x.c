@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:24:02 by rgelin            #+#    #+#             */
-/*   Updated: 2021/07/16 13:30:29 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/07/19 00:49:41 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,8 @@ void	set_x_star_arg(va_list ap, char *flag, t_flag *p_flag, t_len *length)
 		p_flag->precision = va_arg(ap, int);
 	}
 	nb = convert_nbr(ap, flag);
-	if (!nb)
-		return ;
-	print_x_star_1(nb, p_flag, length);
+	if (nb)
+		print_x_star_1(nb, p_flag, length);
 	return ;
 }
 
